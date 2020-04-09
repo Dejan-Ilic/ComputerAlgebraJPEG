@@ -1,3 +1,4 @@
+%encodeert een afbeelding f, bestaande uit enkel grijstinten
 function F = encode_channel(f)
 f = f - 128;
 

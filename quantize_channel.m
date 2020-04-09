@@ -1,4 +1,4 @@
-%quantized een color channel
+%quantizet een color channel
 function F = quantize_channel(F, q)
 for blockx=0:(size(F,2)/8-1)
     for blocky=0:(size(F,1)/8 - 1)

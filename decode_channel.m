@@ -1,5 +1,5 @@
+%decodeert een afbeelding f, bestaande uit enkel grijstinten
 function f = decode_channel(F)
-
 
 f = zeros(size(F));
 C = @(u) sqrt(1/2).^(u==0);
