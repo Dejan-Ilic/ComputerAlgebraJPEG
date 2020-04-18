@@ -1,4 +1,4 @@
-Assignment for the VUB course "Computer Algebra" by Prof. Jan De Beule.
+Assignment for the VUB course "Computer Algebra" by Prof. Dr. Jan De Beule.
 
 Executable files:
 *jpeg_example.m

@@ -13,7 +13,7 @@ function out = three_channels(func, varargin)
         out2 = func(Ic(:,:,2), Qchr);
         out3 = func(Ic(:,:,3), Qchr);
     else
-        disp("error in three_channels")
+        disp("error in three channels")
     end
     
     out = cat(3, out1, out2, out3);

@@ -1,8 +1,8 @@
-%deze code doet:
-% 1) toon de originele foto
-% 2) toon de R, G en B kanalen
-% 3) toon de na\"ive RGB -> YCbCr -> RGB afrondingsfout 
-% 4) toon de Y, Cb en Cr kanalen
+%deze code:
+% 1) toont de originele foto
+% 2) toont de R, G en B kanalen
+% 3) toont de naive RGB -> YCbCr -> RGB afrondingsfout 
+% 4) toont de Y, Cb en Cr kanalen
 
 clear;
 close all;
@@ -14,7 +14,7 @@ R = double(RGB(:,:,1));
 G = double(RGB(:,:,2));
 B = double(RGB(:,:,3));
 
-%toon de R,G,B kanalen
+%% toon de R,G,B kanalen
 Z = ones(size(R))*0;
 
 
@@ -27,11 +27,11 @@ figure(3); imshow(im); figure(3); %title('Green channel');
 im = uint8(cat(3, Z,Z,B));
 figure(4); imshow(im); figure(4); %title('Blue channel');
 
+%zet om naar YCbCr kleuren
+[Y,Cb,Cr] = rgb_to_ycbcr(R,G,B);
 
-[Y, Cb, Cr] = rgb_to_ycbcr(R, G, B);
-
-%toon dat heen-en-weer gaan afrondingsfouten veroorzaakt
-[R2, G2, B2] = ycbcr_to_rgb(Y, Cb, Cr);
+%% toon dat heen-en-weer gaan afrondingsfouten veroorzaakt
+[R2,G2,B2] = ycbcr_to_rgb(Y,Cb,Cr);
 
 
 figure(5); imagesc((R2 - R)); figure(5); %title("Red rounding error");
@@ -46,7 +46,7 @@ colorbar;
 figure(11); imagesc(max(max(abs(R2 - R), abs(G2 - G)), abs(B2 - B))); colorbar;
 
 
-%toon de Y, Cb en Cr kanalen
+%% toon de Y, Cb en Cr kanalen
 Z = ones(size(R));
 s_lum = 128;
 s_chr = 128;
