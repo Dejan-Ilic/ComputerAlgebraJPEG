@@ -2,7 +2,7 @@
 %gebruikt
 
 clear;
-close all;
+%close all;
 
 c = 1016;
 T = ones(8*8 + 7)*(-1);
@@ -16,9 +16,12 @@ for i=1:8
         
         i1 = 1 + (i-1)*9;
         j1 = 1 + (j-1)*9;
-        T(i1:(i1+7), j1:(j1+7)) = df;
+        T(i1:(i1+7), j1:(j1+7)) = (df - min(min(df))) / (max(max(df)) - min(min(df))) * 255;
     end
 end
+i1 = 1;
+j1 = 1;
+T(i1:(i1+7), j1:(j1+7)) = 255; %anders is de bovenste tegel zwart.
 
 T = imresize(T, 12, 'nearest');
 
